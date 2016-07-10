@@ -1,16 +1,8 @@
+// var LoadDoc = require('./lib/models/getApiContent.js').LoadDoc;
 
 window.addEventListener("load", function() {
-  // new_story = new Story();
-  loadDoc();
+  // loaded = new LoadDoc();
+  // loaded.getNewsString();
+  var articles = new Articles(Story, LoadDoc);
+  articles.readTheNews();
 });
-
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-      document.getElementById("demo").innerHTML = xhttp.responseText;
-    }
-  };
-  xhttp.open("GET", "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/politics", true);
-  xhttp.send();
-}
